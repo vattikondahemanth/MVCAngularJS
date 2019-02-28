@@ -52,8 +52,6 @@
                 getallData();
                 $scope.custModel = {};
 				console.log(data);
-				$window.location.href = 'http://localhost:5503/Dashboard';
-				console.log('changed');
             }
             else {
                 $scope.message = 'Form data not Saved!';

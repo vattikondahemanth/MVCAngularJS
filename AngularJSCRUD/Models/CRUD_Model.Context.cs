@@ -26,5 +26,7 @@ namespace AngularJSCRUD.Models
         }
     
         public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<test> tests { get; set; }
     }
 }

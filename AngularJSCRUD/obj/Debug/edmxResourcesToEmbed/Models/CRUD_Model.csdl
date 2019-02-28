@@ -10,5 +10,39 @@
   </EntityType>
   <EntityContainer Name="CRUD_SampleEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="Products" EntityType="CRUD_SampleModel.Product" />
+    <EntitySet Name="tests" EntityType="CRUD_SampleModel.test" />
+    <AssociationSet Name="FK_Products_test" Association="CRUD_SampleModel.FK_Products_test">
+      <End Role="test" EntitySet="tests" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="UserID" Type="Guid" />
+    <Property Name="ProductName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="test" Relationship="CRUD_SampleModel.FK_Products_test" FromRole="Product" ToRole="test" />
+  </EntityType>
+  <EntityType Name="test">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="Product" Relationship="CRUD_SampleModel.FK_Products_test" FromRole="test" ToRole="Product" />
+  </EntityType>
+  <Association Name="FK_Products_test">
+    <End Type="CRUD_SampleModel.test" Role="test" Multiplicity="1" />
+    <End Type="CRUD_SampleModel.Product" Role="Product" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="test">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

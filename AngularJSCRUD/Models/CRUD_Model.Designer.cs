@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'E:\MyWork\Article\Angular\Part - 2\ASP.NET MVC 5 with AngularJS Part 1\AngularJS\AngularJSCRUD\Models\CRUD_Model.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\ASP.NET_MVC_5_with_AngularJS\ASP.NET MVC 5 with AngularJS\AngularJSCRUD\Models\CRUD_Model.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
